@@ -24,22 +24,22 @@ def parsek(output_dict):
     driver = webdriver.Chrome(chrome_options=OPTS)
 
     driver.get(URL)
-    time.sleep(0.1)
+    # time.sleep(0.01)
 
     elem = driver.find_element_by_name('exam')
     elem.send_keys("521703471")
     elem.send_keys(Keys.ENTER)
-    time.sleep(0.1)
+    # time.sleep(0.01)
 
     driver.find_element_by_class_name('button').click()
-    time.sleep(0.1)
+    # time.sleep(0.01)
 
     for i in range(QUESTIONS_COUNT):
         source = driver.page_source
         soup = BeautifulSoup(source, 'html.parser')
         output_dict[remove_tags(soup.find('td', {'align': 'center'})).rstrip()] = [
             remove_tags(text) for text in soup.find_all('label')]
-        time.sleep(0.1)
+        # time.sleep(0.01)
         driver.find_element_by_class_name('button').click()
     driver.quit()
 
@@ -48,6 +48,5 @@ QUESTIONS = dict()
 # for i in range(10):
 parsek(QUESTIONS)
 
-with open('asd.txt', 'w') as file:
+with open('asd.txt', 'a') as file:
     file.write(str(QUESTIONS))
-    file.close()
