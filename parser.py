@@ -45,7 +45,6 @@ def parsek(output_dict):
 
 
 questions = dict()
-# for i in range(10):
 parsek(questions)
 
 with open('asd.txt', 'a') as file:
