@@ -44,9 +44,9 @@ def parsek(output_dict):
     driver.quit()
 
 
-QUESTIONS = dict()
+questions = dict()
 # for i in range(10):
-parsek(QUESTIONS)
+parsek(questions)
 
 with open('asd.txt', 'a') as file:
-    file.write(str(QUESTIONS))
+    file.write(str(questions))
