@@ -1,6 +1,7 @@
 import html.parser
 import re
 import time
+import requests
 
 from bs4 import BeautifulSoup
 
@@ -21,3 +22,10 @@ def export(page_source, current_qa_dict):
 
 
 def connect(student_code, exam_code):
+    response = requests.get(
+        'http://ct.wunderbar.name/tpstud.php?tn=512')
+    print(response.headers)
+    # print(response.text)
+
+
+connect('512', '1231321')
