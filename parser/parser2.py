@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 URL = r'http://ct.wunderbar.name/tpstud.php?tn={student_code}&exam={exam_code}'
 TAG_RE = re.compile(r'<[^>]+>')
 QUESTIONS_COUNT = 50
-TEST_KEY = "2249310631"
+TEST_KEY = "2507813895"
 
 
 def remove_tags(text):
@@ -23,7 +23,7 @@ def export(page_source, current_qa_dict):
 
 def connect(student_code, exam_code):
     response = requests.get(
-        'http://ct.wunderbar.name/tpstud.php?tn=512&exam=2507813895')
+        'http://ct.wunderbar.name/tpstud.php?tn=512')
     print(response.headers)
     print(response.url)
 
