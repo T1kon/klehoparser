@@ -34,7 +34,7 @@ def export(page_source, current_qa_dict):
 
 def connect_to_test(student_code, exam_code):
 
-    driver = webdriver.Chrome(r"chromedriver")
+    driver = webdriver.Chrome(r"chromedriver.exe")
     driver.get(URL.format(student_code))
     elem = driver.find_element_by_name('exam')
     elem.send_keys(exam_code)
@@ -104,10 +104,10 @@ elem = driver.find_element_by_name('exam')
 elem.send_keys("2507813895")
 elem.send_keys(Keys.ENTER)
 driver.find_element_by_class_name('button').click()
-/path/to/chromedriver'
+
 for question in range(QUESTIONS_COUNT):
     soup = BeautifulSoup(driver.page_source, 'html.parser')
-    question = get_question(soup)/path/to/chromedriver'
+    question = get_question(soup)
     if question in qdict:
         answers = [answer for answer in qdict[question].keys(
         ) if qdict[question][answer]['сorrectness'] == True]
@@ -119,8 +119,6 @@ for question in range(QUESTIONS_COUNT):
             for answer in answers:
                 driver.find_element_by_css_selector(
                     css_selector_string.format(answer)).click()
-	else:
-		time.sleep(15)
     driver.find_element_by_name('go').click()
 time.sleep(50)
 driver.quit()
